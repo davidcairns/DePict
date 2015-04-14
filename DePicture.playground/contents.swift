@@ -1,49 +1,50 @@
-/*: DePicture.playground - noun: a place where people can play with drawing.
-by David Cairns
+/*:
+# DePicture.playground
+### by @[davidcairns](https://twitter.com/davidcairns)
+## _- noun: a place where people can play with drawing._
+##
+
+---
 
 This playground allows you to draw pictures using simple, declarative code.
 
-To produce a drawing, call the `Draw` function (just type *Draw* and let autocomplete
+To produce a drawing, call the `Draw` function (just type **Draw** and let autocomplete
 do the rest!).
 
 You will see that `Draw` requires a `Colorer`. Type either:
-• *Filled*, for filled-in shapes, or
-• *Outlined*, for outlined or “stroked” shapes.
+- `Filled`, for filled-in shapes, or
+- `Outlined`, for outlined or _stroked_ shapes.
 
 After you pick one and provide it a color (see the built-in colors below), you will
 see that a `Colorer` requires a `Shape`. Type either:
-• `Line`,
-• `Rectangle`, or
-• `Circle`
+- `Line`,
+- `Rectangle`,
+- or `Circle`
 
 You can also combine shapes and nest them, such as: 
-```
-let crossShape = Line(fromX: 1, y: 1, toX: 9, y: 9) + Line(fromX: 1, y: 9, toX: 9, y: 1)
-let blueSquare = Filled(Blue, Rectangle(x: 2, y: 2, width: 6, height: 6))
-let myShape = blueSquare + Outlined(Red, crossShape)
-```
 
-You can turn the above *description* of a shape into a shape by *Draw*ing it:
-`Draw(width: 10, height: 10, color: myShape)`
+    let crossShape = Line(fromX: 1, y: 1,
+                            toX: 9, y: 9)
+                   + Line(fromX: 1, y: 9,
+                            toX: 9, y: 1)
+    let blueSquare = Filled(Blue, Rectangle(x: 2, y: 2, width: 6, height: 6))
+    let myShape = blueSquare + Outlined(Red, crossShape)
 
+You can turn the above _description_ of a shape into a shape by _Draw-ing_ it:
 
-At the bottom, there’s some simple code for drawing a face. On the right side of the
-playground window, you should see something that says `w 100 h 100`. Mouse-over it and
-then click the empty circle that appears. You should see a drawing of a face appear!
-
-See if you can give the face some glasses or ears or eyebrows!
-
+    Draw(width: 10, height: 10, colorer: myShape)
 */
-
-
 import UIKit
 import CoreGraphics
 import XCPlayground
 
+/*:
+## Let’s draw a face!
 
-
-///: Let’s draw a face!
-
+Below, there’s some simple code for drawing a face. On the right side of the
+playground window, you should see something that says `w 100 h 100`. Mouse-over it and
+then click the empty circle that appears. You should see a drawing of a face appear!
+*/
 Draw(colorer:
 	// Hair (behind head)
 	Filled(color: Black, shape: Circle(centerX: 50, Y: 58, radius: 40))
@@ -68,22 +69,19 @@ Draw(colorer:
 			Line([(40, 30), (46, 25), (54, 25)])
 	)
 )
+//: See if you can give the face some 😎 or 👂s or eyebrows 😯!
 
+/*:
+## Let’s draw a sailboat!
 
+By describing a drawing in this way, we can clearly see how the different
+elements break down.
 
-
-
-/*: By describing a drawing in this way, we can clearly see how the different
-	elements break down.
-
-	However, a computer is a dynamic medium! We have a lot of duplicated values
-	in the above. These can be *abstracted* to a `let` statement, giving a name
-	to the value. Then we can use this name to refer to the value later, and
-	combine it with other values.
-
-	For an example, let’s draw a sailboat!
+However, a computer is a dynamic medium! We have a lot of duplicated values
+in the above. These can be *abstracted* to a `let` statement, giving a name
+to the value. Then we can use this name to refer to the value later, and
+combine it with other values.
 */
-
 // The horizon is denoted by a horizontal through our scene, separating the sea and
 // the sky. By specify where the horizon is, we can refer to it later. The canvas is
 // 100x100, so let’s put the horizon just below center, at 35.
@@ -107,6 +105,15 @@ let sailEdge = mastPlace - 2
 let hullToSail = 6
 let bottomOfSail = topOfHull + hullToSail
 
+/*:
+Now check it out! You can change the level of the horizon (by, for example, changing
+the line above to `let horizon = 50`), and the value of the horizon will change
+everything that was defined relative to it, and all the values defined relative to
+those values, and so on.
+
+In other words, changing the horizon changes where the hull is drawn, which changes 
+where the mast is drawn, which changes where the sail is drawn. Try it out!
+*/
 Draw(colorer: 
 	// Sky
 	Filled(color: Light(Light(Blue)), shape: Rectangle(x: 0, y: 0, width: 100, height: 100))
@@ -124,40 +131,23 @@ Draw(colorer:
 	+ Filled(color: White, shape: Line([(sailEdge, topOfMast - 3), (sailEdge - widthOfSail, bottomOfSail), (sailEdge, bottomOfSail)]))
 )
 
+/*:
+## Let's make recursive drawings!
 
+Recursion allows us to repeatedly nest a drawing inside itself, using a simple set of rules.
+It’s easiest to think of a recursive process as one that
+1. starts at some value,
+2. expresses how to progress from a value to the next value,
+3. checks for completion
 
-/*: Now check it out! You can change the level of the horizon (by, for example, changing
-	the line above to `let horizon = 50`), and the value of the horizon will change
-	everything that was defined relative to it, and all the values defined relative to
-	those values, and so on.
-
-	In other words, changing the horizon changes where the hull is drawn, which changes 
-	where the mast is drawn, which changes where the sail is drawn. Try it out!
+Below, we use the `Recursing` function to constantly shrink the width of the square by 10%.
+But the `Recursing` function doesn’t just work with `width`, it will work with any kind of
+value you pass into it!
 */
-
-
-
-
-
-/*: You can even make recursive drawings!
-	
-	Recursion allows us to repeatedly nest a drawing inside itself, using a simple set of rules.
-	It’s easiest to think of a recursive process as one that 
-		1) starts at some value, 
-		2) expresses how to progress from a value to the next value,
-		3) checks for completion
-	
-	Below, we use the `Recursing` function to constantly shrink the width of the square by 10%.
-	But the `Recursing` function doesn’t just work with `width`, it will work with any kind of
-	value you pass into it!
-*/
-
-let recursiveColorer = Recursing({ width in Outlined(color: Blue, shape: Rectangle(x: 0, y: 0, width: Int(width * 100.0), height: Int(width * 100.0))) }, 
+let recursiveColorer = Recursing({ width in
+		Outlined(color: Blue, shape: Rectangle(x: 0, y: 0, width: Int(width * 100.0), height: Int(width * 100.0)))
+	},
 	startingValue: 1.0, 
 	nextValue: { width in width * 0.9 }, 
 	until: { width in width < 0.01 })
 Draw(colorer: recursiveColorer)
-
-
-
-
