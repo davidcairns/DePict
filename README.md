@@ -1,4 +1,4 @@
-# DePicture.playground - noun: a place where people can play with drawing
+# DePict.playground - noun: a place where people can play with drawing
 
 A simple, declarative, functional drawing framework! In Swift!  
 
