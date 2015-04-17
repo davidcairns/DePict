@@ -1,5 +1,5 @@
 /*:
-# Face.playground
+# DePict
 ### by @[davidcairns](https://twitter.com/davidcairns)
 ## _- noun: a place where people can play with drawing._
 ##

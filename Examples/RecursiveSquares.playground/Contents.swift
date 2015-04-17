@@ -1,7 +1,3 @@
-//: Playground - noun: a place where people can play
-
-import DePictLib
-
 /*:
 ## Let's make recursive drawings!
 
@@ -15,6 +11,8 @@ Below, we use the `Recursing` function to constantly shrink the width of the squ
 But the `Recursing` function doesn’t just work with `width`, it will work with any kind of
 value you pass into it!
 */
+
+import DePictLib
 
 let recursiveSquares = Recursing({ size in Outlined(color: Blue, shape: Rectangle(x: 0, y: 0, width: size, height: size)) }, 
 	startingValue: 100, 

@@ -1,7 +1,3 @@
-//: Playground - noun: a place where people can play
-
-import DePictLib
-
 /*:
 ## Let’s draw a sailboat!
 
@@ -13,6 +9,9 @@ in the above. These can be *abstracted* to a `let` statement, giving a name
 to the value. Then we can use this name to refer to the value later, and
 combine it with other values.
 */
+
+
+import DePictLib
 
 // The horizon is denoted by a horizontal through our scene, separating the sea and
 // the sky. By specify where the horizon is, we can refer to it later. The canvas is
@@ -55,7 +54,8 @@ Draw(colorer:
 )
 
 
-/*: Now check it out! You can change the level of the horizon (by, for example, changing
+/*: 
+Now check it out! You can change the level of the horizon (by, for example, changing
 the line above to `let horizon = 50`), and the value of the horizon will change
 everything that was defined relative to it, and all the values defined relative to
 those values, and so on.

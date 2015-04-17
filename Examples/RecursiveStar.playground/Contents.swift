@@ -1,4 +1,8 @@
-//: Playground - noun: a place where people can play
+/*:
+## Let's make a star!
+
+We can use simple declarative recursion to create beautiful algorithmically-generated geometry.
+*/
 
 import DePictLib
 
