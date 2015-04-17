@@ -4,5 +4,23 @@
    <FileRef
       location = "group:DePictLib/DePictLib.xcodeproj">
    </FileRef>
-   </FileRef>
+   <Group
+      location = "container:"
+      name = "Examples">
+      <FileRef
+         location = "group:Examples/Face.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Examples/Sailboat.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Examples/BarCharts.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Examples/RecursiveSquares.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Examples/RecursiveStar.playground">
+      </FileRef>
+   </Group>
 </Workspace>
