@@ -31,6 +31,8 @@ You can also combine `Shapes` and `Colorers` with `+`:
 This lets you create abstractions within your drawing and reuse them. You can turn the above *description* of `squareWithCross` into an image by `Draw`ing it:
 	`Draw(width: 10, height: 10, color: squareWithCross)`
 
+![Square w/ X](http://davidcairns.github.io/DePict_README_images/square-with-cross.png "Square w/ X")
+
 -----
 
 ### Drawing a Face
