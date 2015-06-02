@@ -8,7 +8,6 @@
 
 import Foundation
 import CoreGraphics
-import UIKit
 
 ///: Drawing
 private func CreateDrawingContext(size: CGSize) -> CGContextRef {
@@ -19,9 +18,9 @@ private func CreateDrawingContext(size: CGSize) -> CGContextRef {
 	let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
 	return CGBitmapContextCreate(nil, Int(size.width), Int(size.height), bitsPerComponent, bytesPerRow, colorspace, bitmapInfo)
 }
-public typealias Image = UIImage
+
 public func Draw(width: Int = 100, height: Int = 100, #colorer: Colorer) -> Image {
 	let context = CreateDrawingContext(CGSize(width: width, height: height))
 	colorer(context)
-	return UIImage(CGImage: CGBitmapContextCreateImage(context))!
+	return ImageFromCGImage(CGBitmapContextCreateImage(context))
 }
