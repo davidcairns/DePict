@@ -10,7 +10,7 @@ import Foundation
 import CoreGraphics
 
 ///: Drawing
-private func CreateDrawingContext(size: CGSize) -> CGContextRef {
+private func CreateDrawingContext(size: CGSize) -> CGContext {
 	let bitsPerComponent = 8
 	let numComponents = 4
 	let bytesPerRow = (bitsPerComponent / 8) * numComponents * Int(size.width)

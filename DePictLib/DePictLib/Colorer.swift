@@ -9,7 +9,7 @@
 import Foundation
 import CoreGraphics
 
-public typealias Colorer = (CGContextRef) -> ()
+public typealias Colorer = (CGContext) -> ()
 public func EmptyColorer() -> Colorer {
 	return { _ in }
 }

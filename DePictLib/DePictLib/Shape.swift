@@ -9,7 +9,7 @@
 import Foundation
 import CoreGraphics
 
-public typealias Shape = () -> CGPathRef
+public typealias Shape = () -> CGPath
 public func EmptyShape() -> Shape {
 	return { CGPathCreateMutable() }
 }
