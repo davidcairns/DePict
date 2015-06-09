@@ -17,6 +17,9 @@
          location = "group:Examples/BarCharts.playground">
       </FileRef>
       <FileRef
+         location = "group:Examples/CircleAnimation.playground">
+      </FileRef>
+      <FileRef
          location = "group:Examples/RecursiveSquares.playground">
       </FileRef>
       <FileRef
