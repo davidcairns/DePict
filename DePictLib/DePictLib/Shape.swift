@@ -62,3 +62,17 @@ public func Circle(#centerX: Int, Y centerY: Int, #radius: Int) -> Shape {
 	}
 }
 
+public func Radial(#centerX: Int, #centerY: Int, #radius: Int, #fromAngle: Double, #toAngle: Double, clockwise: Bool = true) -> Shape {
+	return {
+		let path = CGPathCreateMutable()
+		CGPathMoveToPoint(path, nil, CGFloat(centerX), CGFloat(centerY))
+		CGPathAddArc(path, nil, CGFloat(centerX), CGFloat(centerY), CGFloat(radius), CGFloat(fromAngle), CGFloat(toAngle), clockwise)
+		CGPathCloseSubpath(path)
+		return path
+	}
+}
+public func TweenedRadial(#centerX: Int, #centerY: Int, #radius: Int, #fromAngle: Double, clockwise: Bool = true) -> (Double -> Shape) {
+	return { progress in
+		return Radial(centerX: centerX, centerY: centerY, radius: radius, fromAngle: fromAngle, toAngle: fromAngle - progress * 2.0 * M_PI, clockwise: clockwise)
+	}
+}
