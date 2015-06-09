@@ -25,6 +25,9 @@
 		DF615A421AE0CDD100848DE6 /* Transformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF615A411AE0CDD100848DE6 /* Transformation.swift */; };
 		DF615A451AE0CE0500848DE6 /* Recursion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF615A441AE0CE0500848DE6 /* Recursion.swift */; };
 		DF615A481AE0CE1A00848DE6 /* DePict_Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF615A471AE0CE1A00848DE6 /* DePict_Internal.swift */; };
+		DFB392611B263CCA00820D42 /* Mask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB392601B263CCA00820D42 /* Mask.swift */; };
+		DFF830021B2655D5009174D3 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF830011B2655D5009174D3 /* Animation.swift */; };
+		DFFD6B961B2646B100CCC245 /* Mask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB392601B263CCA00820D42 /* Mask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,8 @@
 		DF615A411AE0CDD100848DE6 /* Transformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transformation.swift; sourceTree = "<group>"; };
 		DF615A441AE0CE0500848DE6 /* Recursion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recursion.swift; sourceTree = "<group>"; };
 		DF615A471AE0CE1A00848DE6 /* DePict_Internal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DePict_Internal.swift; sourceTree = "<group>"; };
+		DFB392601B263CCA00820D42 /* Mask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mask.swift; sourceTree = "<group>"; };
+		DFF830011B2655D5009174D3 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +96,8 @@
 				DF615A381AE0CCEA00848DE6 /* Shape.swift */,
 				DF615A3B1AE0CD4A00848DE6 /* Colorer.swift */,
 				DF615A3E1AE0CD5D00848DE6 /* Color.swift */,
+				DFB392601B263CCA00820D42 /* Mask.swift */,
+				DFF830011B2655D5009174D3 /* Animation.swift */,
 				DF615A411AE0CDD100848DE6 /* Transformation.swift */,
 				DF615A441AE0CE0500848DE6 /* Recursion.swift */,
 				DF615A471AE0CE1A00848DE6 /* DePict_Internal.swift */,
@@ -225,6 +232,7 @@
 			files = (
 				DF3A27F31B1E2AFB00522486 /* Image_Mac.swift in Sources */,
 				DF3A27E81B1E2A7400522486 /* DePictLib.swift in Sources */,
+				DFFD6B961B2646B100CCC245 /* Mask.swift in Sources */,
 				DF3A27E91B1E2A7400522486 /* Shape.swift in Sources */,
 				DF3A27EA1B1E2A7400522486 /* Colorer.swift in Sources */,
 				DF3A27EB1B1E2A7400522486 /* Color.swift in Sources */,
@@ -240,11 +248,13 @@
 			files = (
 				DF615A451AE0CE0500848DE6 /* Recursion.swift in Sources */,
 				DF615A481AE0CE1A00848DE6 /* DePict_Internal.swift in Sources */,
+				DFB392611B263CCA00820D42 /* Mask.swift in Sources */,
 				DF548E661AD8899400D0F5AF /* DePictLib.swift in Sources */,
 				DF615A3F1AE0CD5D00848DE6 /* Color.swift in Sources */,
 				DF615A3C1AE0CD4A00848DE6 /* Colorer.swift in Sources */,
 				DF615A391AE0CCEA00848DE6 /* Shape.swift in Sources */,
 				DF615A421AE0CDD100848DE6 /* Transformation.swift in Sources */,
+				DFF830021B2655D5009174D3 /* Animation.swift in Sources */,
 				DF3A27F01B1E2AB000522486 /* Image_iOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
