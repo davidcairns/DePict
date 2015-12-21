@@ -8,7 +8,7 @@
 
 import Foundation
 
-public func Animated <T> (numFrames: Int = 24, thing: Double -> T) -> [T] {
+public func Animated <T> (numFrames numFrames: Int = 24, thing: Double -> T) -> [T] {
 	return Array(0 ... numFrames).map { (idx: Int) -> T in
 		let progress = Double(idx) / Double(numFrames)
 		return thing(progress)

@@ -18,5 +18,5 @@ let recursiveSquares = Recursing({ size in Outlined(color: Blue, shape: Rectangl
 	startingValue: 100, 
 	nextValue: { size in size * 9 / 10 }, 
 	until: { size in size < 1 })
-Draw(colorer: recursiveSquares)
+Draw(recursiveSquares)
 

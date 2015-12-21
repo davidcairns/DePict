@@ -12,5 +12,5 @@ import UIKit
 public typealias Image = UIImage
 
 public func ImageFromCGImage(image: CGImage) -> Image {
-	return UIImage(CGImage: image)!
+	return UIImage(CGImage: image)
 }

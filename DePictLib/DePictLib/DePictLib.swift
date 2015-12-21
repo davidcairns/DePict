@@ -15,12 +15,20 @@ private func CreateDrawingContext(size: CGSize) -> CGContext {
 	let numComponents = 4
 	let bytesPerRow = (bitsPerComponent / 8) * numComponents * Int(size.width)
 	let colorspace = CGColorSpaceCreateDeviceRGB()
-	let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
-	return CGBitmapContextCreate(nil, Int(size.width), Int(size.height), bitsPerComponent, bytesPerRow, colorspace, bitmapInfo)
+	let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.PremultipliedLast.rawValue)
+	return CGBitmapContextCreate(nil, Int(size.width), Int(size.height), bitsPerComponent, bytesPerRow, colorspace, bitmapInfo.rawValue)!
 }
 
-public func Draw(width: Int = 100, height: Int = 100, #colorer: Colorer) -> Image {
+public func Draw(width width: Int, height: Int, colorer: Colorer) -> Image {
 	let context = CreateDrawingContext(CGSize(width: width, height: height))
-	colorer(context)
-	return ImageFromCGImage(CGBitmapContextCreateImage(context))
+	colorer.build(context)
+	return ImageFromCGImage(CGBitmapContextCreateImage(context)!)
+}
+
+public func Draw(colorer: Colorer) -> Image {
+	return Draw(width: Int(colorer.width), height: Int(colorer.height), colorer: colorer)
+}
+
+public func Draw(shape: Shape) -> Image {
+	return Draw(Outlined(color: Black, shape: shape))
 }

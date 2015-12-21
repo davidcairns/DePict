@@ -10,10 +10,10 @@ import DePictLib
 let data = [11, 87, 98, 48, 41, 88, 63, 69, 8, 79]
 
 // 2) For each datum, create a filled rectangle with height relative to its value.
-let bars = Array(0 ..< data.count).map({ Filled(color: Magenta, shape: Rectangle(x: $0 * 10, y: 0, width: 5, height: data[$0])) })
+let bars = data.map({ Filled(color: Magenta, shape: Rectangle(width: 5, height: $0)) })
 
 // 3) Combine the rectangles using the `+` operator -- note that starting with `EmptyColorer` is just like summing numbers by starting with 0.
-let graphData = bars.reduce(EmptyColorer(), combine: +)
+let graphData = bars.reduce(EmptyColorer(), combine: spaced(10))
 
-Draw(colorer: graphData)
+Draw(graphData)
 

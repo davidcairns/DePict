@@ -19,10 +19,10 @@ internal func colorToCGColor(color: Color) -> CGColor {
 		CGFloat(1.0)
 	]
 	return components.withUnsafeBufferPointer {
-		return CGColorCreate(space, $0.baseAddress)
+		return CGColorCreate(space, $0.baseAddress)!
 	}
 }
-internal func applyPushed(#context: CGContext, block: () -> ()) {
+internal func applyPushed(context context: CGContext, block: () -> ()) {
 	CGContextSaveGState(context)
 	block()
 	CGContextRestoreGState(context)

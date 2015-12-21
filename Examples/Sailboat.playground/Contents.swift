@@ -36,7 +36,7 @@ let sailEdge = mastPlace - 2
 let hullToSail = 6
 let bottomOfSail = topOfHull + hullToSail
 
-Draw(colorer: 
+Draw(
 	// Sky
 	Filled(color: Light(Light(Blue)), shape: Rectangle(x: 0, y: 0, width: 100, height: 100))
 		
