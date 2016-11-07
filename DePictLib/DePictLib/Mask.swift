@@ -8,11 +8,11 @@
 
 import Foundation
 
-public func Masked(colorer colorer: Colorer, mask: Shape) -> Colorer {
+public func Masked(colorer: Colorer, mask: Shape) -> Colorer {
 	return Colorer(width: colorer.width, height: colorer.height) { context in
-		applyPushed(context: context) {
-			CGContextAddPath(context, mask.build())
-			CGContextClip(context)
+		applyPushed(context) {
+			context.addPath(mask.build())
+			context.clip()
 			colorer.build(context)
 		}
 	}

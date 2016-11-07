@@ -1,4 +1,4 @@
-/*:
+ /*:
 # DePict
 ### by @[davidcairns](https://twitter.com/davidcairns)
 ## _- noun: a place where people can play with drawing._
@@ -47,29 +47,30 @@ then click the empty circle that appears. You should see a drawing of a face app
 
 Draw(Scaled(2.0, colorer:
 	// Hair (behind head)
-	Filled(color: Black, shape: Circle(centerX: 50, Y: 58, radius: 40))
+    Filled(color: Black, shape: Circle(centerX: 50, Y: 58, radius: 40))
 		
 	// Face
 	+ Filled(color: Brown, shape: Circle(centerX: 50, Y: 50, radius: 40))
 	
 	// Eyes and pupils
-	+ Filled(color: White, shape: Rectangle(x: 20, y: 50, width: 20, height: 8))
+    + Filled(color: White, shape: Rectangle(x: 20, y: 50, width: 20, height: 8))
 	+ Filled(color: Blue, shape: Circle(centerX: 30, Y: 54, radius: 2))
 	+ Filled(color: White, shape: Rectangle(x: 60, y: 50, width: 20, height: 8))
 	+ Filled(color: Blue, shape: Circle(centerX: 70, Y: 54, radius: 2))
 	
 	// Nose
 	+ Outlined(color: Light(Brown), shape:
-		Line(fromX: 50, y: 54, toX: 56, y: 44)
+        Line(fromX: 50, y: 54, toX: 56, y: 44)
 		+ Line(fromX: 56, y: 44, toX: 52, y: 42)
 	)
 	
 	// Mouth
 	+ Outlined(color: Light(Red), shape:
-		Line([(40, 30), (46, 25), (54, 25)])
+        Line([(40, 30), (46, 25), (54, 25)])
 	)
 ))
 
 //: See if you can give the face some 😎 or 👂s or eyebrows 😯!
 
 
+ 

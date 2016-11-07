@@ -10,7 +10,7 @@ import Foundation
 import CoreGraphics
 
 ///: Private
-internal func colorToCGColor(color: Color) -> CGColor {
+internal func colorToCGColor(_ color: Color) -> CGColor {
 	let space = CGColorSpaceCreateDeviceRGB()
 	let components: [CGFloat] = [
 		CGFloat(color.red),
@@ -19,11 +19,11 @@ internal func colorToCGColor(color: Color) -> CGColor {
 		CGFloat(1.0)
 	]
 	return components.withUnsafeBufferPointer {
-		return CGColorCreate(space, $0.baseAddress)!
+		return CGColor(colorSpace: space, components: $0.baseAddress!)!
 	}
 }
-internal func applyPushed(context context: CGContext, block: () -> ()) {
-	CGContextSaveGState(context)
+internal func applyPushed(_ context: CGContext, block: () -> ()) {
+	context.saveGState()
 	block()
-	CGContextRestoreGState(context)
+	context.restoreGState()
 }

@@ -13,7 +13,7 @@ let data = [11, 87, 98, 48, 41, 88, 63, 69, 8, 79]
 let bars = data.map({ Filled(color: Magenta, shape: Rectangle(width: 5, height: $0)) })
 
 // 3) Combine the rectangles using the `+` operator -- note that starting with `EmptyColorer` is just like summing numbers by starting with 0.
-let graphData = bars.reduce(EmptyColorer(), combine: spaced(10))
+let graphData = bars.reduce(EmptyColorer(), spaced(10))
 
 Draw(graphData)
 

@@ -19,10 +19,10 @@ public let Black = Color(red: 0.0, green: 0.0, blue: 0.0)
 public let Brown = Color(red: 0.6, green: 0.3, blue: 0.0)
 public let Magenta = Color(red: 1.0, green: 0.0, blue: 1.0)
 public let Yellow = Color(red: 1.0, green: 1.0, blue: 0.0)
-public func Light(color: Color) -> Color {
+public func Light(_ color: Color) -> Color {
 	let d = (1.0 - color.red, 1.0 - color.green, 1.0 - color.blue)
 	return Color(red: color.red + 0.5 * d.0, green: color.green + 0.5 * d.1, blue: color.blue + 0.5 * d.2)
 }
-public func Dark(color: Color) -> Color {
+public func Dark(_ color: Color) -> Color {
 	return Color(red: 0.5 * color.red, green: 0.5 * color.green, blue: 0.5 * color.blue)
 }

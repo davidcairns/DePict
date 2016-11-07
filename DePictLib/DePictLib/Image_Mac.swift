@@ -11,6 +11,6 @@ import Cocoa
 
 public typealias Image = NSImage
 
-public func ImageFromCGImage(image: CGImage) -> Image {
-	return NSImage(CGImage: image, size: NSZeroSize)
+public func ImageFromCGImage(_ image: CGImage) -> Image {
+	return NSImage(cgImage: image, size: NSZeroSize)
 }

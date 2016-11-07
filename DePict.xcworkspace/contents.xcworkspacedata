@@ -23,9 +23,6 @@
          location = "group:Examples/CircleAnimation.playground">
       </FileRef>
       <FileRef
-         location = "group:Examples/RecursiveSquares.playground">
-      </FileRef>
-      <FileRef
          location = "group:Examples/RecursiveStar.playground">
       </FileRef>
    </Group>

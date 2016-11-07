@@ -9,7 +9,7 @@
 import Foundation
 import CoreGraphics
 
-public typealias ColorerFunc = CGContextRef -> ()
+public typealias ColorerFunc = (CGContext) -> ()
 
 public struct Colorer {
 	public let width, height: Double
@@ -20,7 +20,7 @@ public func EmptyColorer() -> Colorer {
 	return Colorer(width: 0.0, height: 0.0) { _ in }
 }
 
-private func compose_colorer_builds(lhs: ColorerFunc, rhs: ColorerFunc) -> ColorerFunc {
+private func compose_colorer_builds(_ lhs: @escaping ColorerFunc, rhs: @escaping ColorerFunc) -> ColorerFunc {
 	return  { context in
 		lhs(context)
 		rhs(context)
@@ -33,7 +33,7 @@ public func +(lhs: Colorer, rhs: Colorer) -> Colorer {
 }
 
 // Draw Left next to Right
-public func nextTo(lhs: Colorer, _ rhs: Colorer, distance: Int = 0) -> Colorer {
+public func nextTo(_ lhs: Colorer, _ rhs: Colorer, distance: Int = 0) -> Colorer {
 	return Colorer(width: lhs.width + rhs.width + Double(distance),
 		height: max(lhs.height, rhs.height),
 		build: compose_colorer_builds(lhs.build, rhs: Translated(x: Int(lhs.width) + distance, y: 0, colorer: rhs).build))
@@ -43,7 +43,7 @@ public func |||(lhs: Colorer, rhs: Colorer) -> Colorer {
 }
 
 // Draw Left on top of Right
-public func onTopOf(lhs: Colorer, _ rhs: Colorer, distance: Int = 0) -> Colorer {
+public func onTopOf(_ lhs: Colorer, _ rhs: Colorer, distance: Int = 0) -> Colorer {
 	return Colorer(width: max(lhs.width, rhs.width),
 				   height: lhs.height + rhs.height + Double(distance),
 				   build: compose_colorer_builds(rhs.build, rhs: Translated(x: 0, y: Int(rhs.height) + distance, colorer: lhs).build))
@@ -53,12 +53,12 @@ public func ---(lhs: Colorer, rhs: Colorer) -> Colorer {
 }
 
 public typealias ColorerCombiner = ((Colorer, Colorer) -> Colorer)
-public func spaced(distance: Int = 10) -> ColorerCombiner {
+public func spaced(_ distance: Int = 10) -> ColorerCombiner {
 	return { lhs, rhs in
 		return nextTo(lhs, rhs, distance: distance)
 	}
 }
-public func stacked(distance: Int = 10) -> ColorerCombiner {
+public func stacked(_ distance: Int = 10) -> ColorerCombiner {
 	return { lhs, rhs in
 		return onTopOf(lhs, rhs, distance: distance)
 	}
@@ -66,22 +66,21 @@ public func stacked(distance: Int = 10) -> ColorerCombiner {
 
 
 
-public func Outlined(color color: Color, shape: Shape) -> Colorer {
+public func Outlined(color: Color, shape: Shape) -> Colorer {
 	return Colorer(width: shape.width, height: shape.height) { context in
-		applyPushed(context: context) {
-			CGContextSetStrokeColorWithColor(context, colorToCGColor(color))
-			CGContextAddPath(context, shape.build())
-			CGContextStrokePath(context)
+		applyPushed(context) {
+			context.setStrokeColor(colorToCGColor(color))
+			context.addPath(shape.build())
+			context.strokePath()
 		}
 	}
 }
-public func Filled(color color: Color, shape: Shape) -> Colorer {
+public func Filled(color: Color, shape: Shape) -> Colorer {
 	return Colorer(width: shape.width, height: shape.height) { context in
-		applyPushed(context: context) {
-			CGContextSetFillColorWithColor(context, colorToCGColor(color))
-			CGContextAddPath(context, shape.build())
-			CGContextFillPath(context)
+		applyPushed(context) {
+			context.setFillColor(colorToCGColor(color))
+			context.addPath(shape.build())
+			context.fillPath()
 		}
 	}
 }
-

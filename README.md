@@ -1,6 +1,4 @@
-# DePict.playground - noun: a place where people can play with drawing
-
-A simple, declarative, functional drawing framework! In Swift!  
+# DePict - A simple, declarative, functional drawing framework.
 
 To produce a drawing, call the `Draw` function (just type *Draw* and let autocomplete
 do the rest!).  
@@ -17,21 +15,9 @@ Now you can specify the `Shape` to be drawn:
 • `Circle`
 • & more
 
-In this way, the description of your drawing reads nicely:
+The end result of this is that your code reads like the thing you're actually drawing:
 	`Draw(colorer: Filled(color: Blue, shape: Circle(…)))`
 	“Draw a Filled Blue Circle”
-
-You can also combine `Shapes` and `Colorers` with `+`:
-```
-	let crossShape = Line(fromX: 1, y: 1, toX: 9, y: 9) + Line(fromX: 1, y: 9, toX: 9, y: 1)
-	let blueSquare = Filled(Blue, Rectangle(x: 2, y: 2, width: 6, height: 6))
-	let squareWithCross = blueSquare + Outlined(Red, crossShape)
-```
-
-This lets you create abstractions within your drawing and reuse them. You can turn the above *description* of `squareWithCross` into an image by `Draw`ing it:
-	`Draw(width: 10, height: 10, color: squareWithCross)`
-
-![Square w/ X](http://davidcairns.github.io/DePict_README_images/square-with-cross.png "Square w/ X")
 
 -----
 

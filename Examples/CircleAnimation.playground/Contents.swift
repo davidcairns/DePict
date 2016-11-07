@@ -9,7 +9,7 @@ elements simply and easily using the same style.
 import DePictLib
 
 let animation: [Image] = Animated(numFrames: 24) { (progress: Double) -> Image in
-	let radial: Double -> Shape = TweenedRadial(centerX: 50, centerY: 50, radius: 50, fromAngle: M_PI_2)
+	let radial: (Double) -> Shape = TweenedRadial(centerX: 50, centerY: 50, radius: 50, fromAngle: M_PI_2)
 	return Draw(
 		Filled(color: Light(Brown), shape: Circle(centerX: 50, Y: 50, radius: 44))
 		+
